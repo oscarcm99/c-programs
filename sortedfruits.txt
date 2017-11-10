@@ -1,0 +1,5 @@
+apple
+apricot
+banana
+pear
+watermelon
