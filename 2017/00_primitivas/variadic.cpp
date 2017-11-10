@@ -3,9 +3,11 @@
 #include <stdlib.h>
 
 int main(){
-        int op1 = 7;
+        int op1;
         int op2;
 
+        printf("Operando 1: ");
+        scanf(" %i", &op1);
         printf("Operando 2: ");
         scanf(" %i", &op2);
 
