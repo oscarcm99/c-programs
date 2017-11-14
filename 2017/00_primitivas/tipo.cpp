@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,6 +11,7 @@ int main(){
         unsigned positivo = 5;
         unsigned char byte = 97;
 
+        system("toilet --gay -fpagga DATOS\n\n"); 
         printf("%i   \t(%lu bytes)\n", entero, sizeof(int));
         printf("%f   \t(%lu bytes)\n", realillo, sizeof(float));
         printf("%u   \t(%lu bytes)\n", positivo, sizeof(int));
