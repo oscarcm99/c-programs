@@ -23,5 +23,5 @@ int main(){
 
         /*SALIDA DE DATOS*/
         printf("0x%sh\n", hxdec);
-	return EXIT_SUCCESS;
+	    return EXIT_SUCCESS;
 }
