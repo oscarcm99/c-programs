@@ -18,11 +18,10 @@ int main(){
     d = &frase[2];
     
     frase[2] == 'v'; //notacion de matrices.
-    *d == '2'; //notacion de punteros.
+    *d == 'v'; //notación de punteros.
     *(d+2) == 'm'; // El 2 esta en la aritmética de punteros.
-    *d + 2 == 'x'; // El valor de lo que apunta d + 2.
-
-    printf("el puntero d %s ocupa %lu bytes.\n", frase, sizeof(d));
+    *d + 2 == 'x'; // El valor de lo que apunta d+2.
+    printf(" d ocupa %lu bytes.\n", sizeof(d));
 
 
 

@@ -28,7 +28,7 @@ int main(){
         bzero(lista, sizeof(lista));
         memset(lista + 1, 3, 3);
 
-	printf("%X.", lista[0]);
+	    printf("%X.", lista[0]);
         printf("%X.", lista[1]);
         printf("%X.", lista[2]);
         printf("%X.", lista[3]);
@@ -38,7 +38,7 @@ int main(){
        
         printf("Dime tu nombre: ");
         fgets(nombre, N, stdin);
-        sprintf(nom, "Hola, %s", nombre);
+        sprintf(nom, "Tu nombre es: %s", nombre);
         printf("%s\n", nom);
         return EXIT_SUCCESS;
 }
