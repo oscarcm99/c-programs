@@ -1,10 +1,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#define D 3
+#define X 0
+#define Y 1
+#define Z 2
 int main(){
-        double vertice[3] = { 8., -6., 4. };
-        printf("(%.0lf., %.0lf, %.0lf)=>\t", vertice[0], vertice[1], vertice[2]);
-        printf("(%.2lf, %.2lf)\n", vertice[0] / vertice[2], -vertice[1] / vertice[2]);
+        double vertice[D] = { X, Y, Z };
+        printf("Introduce X: ");
+        scanf(" %lf", &vertice[0]);
+        printf("Introduce Y: ");
+        scanf(" %lf", &vertice[1]);
+        printf("Introduce Z: ");
+        scanf(" %lf", &vertice[Z]);
+        printf("(%lf, %lf, %lf) => (%.2lf, %.2lf)\n", vertice[X], vertice[Y], vertice[Z], vertice[X] / vertice[Z], vertice[Y] / vertice[Z]);
 	return EXIT_SUCCESS;
 }
