@@ -8,7 +8,7 @@ int main(){
     char nombre[N] = "oscar";
     char *p;
     p = &nombre[0];
-    printf("El puntero p %c ocupa %lu bytes\n", *p, sizeof(p));
+    printf("El puntero p %c de %s ocupa %lu bytes\n", *p, nombre, sizeof(p));
 
     return EXIT_SUCCESS;
 }
