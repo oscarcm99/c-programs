@@ -15,7 +15,7 @@ int main(){
         printf("%i   \t(%lu bytes)\n", entero, sizeof(int));
         printf("%f   \t(%lu bytes)\n", realillo, sizeof(float));
         printf("%u   \t(%lu bytes)\n", positivo, sizeof(int));
-        printf("%.2lf  \t(%lu bytes)\n", real, sizeof(double));
+        printf("%lf  \t(%lu bytes)\n", real, sizeof(double));
         printf("%li  \t(%lu bytes)\n", entero_largo, sizeof(int));
         printf("%i   \t(%lu bytes)\n", byte, sizeof(char));
         printf("%c%c%c", 0x31,0x32, 0xA);

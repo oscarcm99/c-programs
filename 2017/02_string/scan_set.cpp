@@ -2,16 +2,17 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#define N 0x10
 int main(){
 
-        char nombre[16];
+        char nombre[N];
         int num;
-        char hxdec[16];
+        char hxdec[N];
 
         /*ENTRADA DE DATOS*/
         printf("Entero: ");
         scanf(" %i", &num);
+        printf("Nombre: ");
         scanf(" %s", nombre);
 
         /*SALIDA DE DATOS*/
