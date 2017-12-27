@@ -9,6 +9,16 @@
 #define PORCENTAJE 5
 #define RAIZ 6
 #define RESTO 7
+const char *choose[] = {
+    "Suma",
+    "Resta",
+    "Multiplicación",
+    "División",
+    "Porcentajes",
+    "Raíces",
+    "Resto",
+    NULL
+};
 int main(){
     unsigned o;
     int a, 
@@ -19,16 +29,11 @@ int main(){
            m;
     system("toilet --gay  Calculadora");
     printf("\t☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭\n");
-    printf( "\t¿Que opción quieres realizar?\n"
-            "\t 1 Suma.\n"
-            "\t 2 Resta.\n"
-            "\t 3 Multiplicación.\n"
-            "\t 4 División.\n"
-            "\t 5 Porcentajes.\n"
-            "\t 6 Raíces.\n"
-            "\t 7 Resto.\n"
-            "\n"
-            "\t Pulse la tecla que desee: ");
+    printf( "\t¿Que opción quieres realizar?\n");
+    for (int i = 0; i<=6; i++)
+    printf("\t %i %s.\n", i+1, choose[i]);
+    printf("\n");
+    printf("\tElija la opción que desee escoger: ");
     scanf(" %u", &o);
     switch(o){
         case SUMA:
@@ -53,7 +58,7 @@ int main(){
             printf("\tDime el segundo número: ");
             scanf(" %lf", &m);
             p = n * m;
-            printf("El resultado es =  %.3lf\n",p);
+            printf("\tEl resultado es =  %.3lf\n",p);
             break;
         case DIVISION:
             printf("\tDime el primer número: ");
