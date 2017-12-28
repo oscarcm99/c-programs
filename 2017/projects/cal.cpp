@@ -9,14 +9,16 @@
 #define PORCENTAJE 5
 #define RAIZ 6
 #define RESTO 7
+#define LOGARITMO 8
 const char *choose[] = {
     "Suma",
     "Resta",
     "Multiplicación",
     "División",
-    "Porcentajes",
-    "Raíces",
+    "Porcentaje",
+    "Raíz",
     "Resto",
+    "Logaritmo",
     NULL
 };
 int main(){
@@ -30,7 +32,7 @@ int main(){
     system("toilet --gay  Calculadora");
     printf("\t☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭\n");
     printf( "\t¿Que opción quieres realizar?\n");
-    for (int i = 0; i<=6; i++)
+    for (int i = 0; i<=7; i++)
     printf("\t %i %s.\n", i+1, choose[i]);
     printf("\n");
     printf("\tElija la opción que desee escoger: ");
@@ -79,8 +81,11 @@ int main(){
         case RAIZ:
             printf("\tDime el número para calcular la raíz cuadrada: ");
             scanf(" %lf", &n);
+            if (n >= 0){
             p = sqrt (n);
             printf("\tLa raíz cuadrada de %.2lf es = %.2lf\n", n, p);
+            }else
+                printf("\tERROR\n");
             break;
         case RESTO:
             printf("\tDime el dividendo: ");
@@ -89,6 +94,12 @@ int main(){
             scanf(" %i", &b);
             c = a % b;
             printf("\tEl resto es = %i\n", c);
+            break;
+        case LOGARITMO:
+            printf("\tIntroduce el número para calcular el logaritmo: ");
+            scanf(" %lf", &n);
+            p = log10(n);
+            printf("\tEl resultado es = %.2lf\n", p);
             break;
         default:
             printf("\tERROR\n");
