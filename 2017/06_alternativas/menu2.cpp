@@ -18,7 +18,7 @@ int main(){
     unsigned eleccion;
     system("toilet --gay -fpagga AREAS");
     printf("Elige la figura.\n");
-    for(int i=0; i<6; i++)
+    for(int i=0; i<5; i++)
     printf("\t%i. %s.\n", i+1, opcion[i]);
     printf("\n" "\tOpcion: ");
     scanf(" %u", &eleccion);
