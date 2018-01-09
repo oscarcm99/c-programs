@@ -50,7 +50,7 @@ int main(){
            n, 
            m,
            v;
-    system("toilet --gay  Calculadora");
+    system("toilet --gay  Calculator");
     printf("\t☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭☭\n");
     printf( "\t¿Que opción quieres realizar?\n");
     for (int i = 0; i<=9; i++)/*Incluye la dirección de memoria de la constante choose*/
