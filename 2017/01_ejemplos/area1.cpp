@@ -18,8 +18,8 @@ int main(){
         perimetro = 4 * lado;
 
         /* SALIDA DE DATOS */
-        printf( "Area: %i\n" 
-                "Perimtero: %i\n",
+        printf( "Area: %.0i\n" 
+                "Perimtero: %.0i\n",
                  area,perimetro );
 
         return EXIT_SUCCESS;
