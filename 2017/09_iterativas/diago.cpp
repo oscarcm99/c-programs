@@ -1,15 +1,18 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#define N 3
 int main(){
-    for(int f=0; f<3; f++){
-        for(int t=0; t<3; t++)
-            for(int c=t?1:0; c<3; c++)
-                if(f==c)
-                    printf("* ");
+    for(int f=0; f<N; f++){
+        for(int t=0; t<5; t++)
+            for(int c = 0; c<N; c++)
+                if(f==c && t%2==0)
+                   printf("* ");
                 else
-                    printf("  ");
+                    if(t%2!=0 && f+c==2)
+                    printf("* ");
+                    else
+                        printf("  ");
         printf("\n");
     } 
 
