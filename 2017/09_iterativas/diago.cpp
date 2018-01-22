@@ -7,15 +7,13 @@ int main(){
         for(int t=0; t<10; t++)
             for(int c = 0; c<N; c++)
                 if(f==c && t%2==0)
-                   printf("* ");
+                    printf("· ");
                 else
-                    if(t%2!=0 && f+c==2)
-                    printf("* ");
+                    if(f+c==2 && t%2!=0)
+                        printf("· ");
                     else
-                        printf("  ");
+                        printf(" ");
         printf("\n");
-    } 
-
-
+    }
     return EXIT_SUCCESS;
 }
