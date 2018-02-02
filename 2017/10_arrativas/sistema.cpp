@@ -13,11 +13,12 @@ void sist(double a[N][N]){
 }
 int main(){
     double a[L][N],
-           coef[L],
-           k;
-           int celda=0;
-           double x,
-                  y;
+    coef[L],
+    k,
+    x,
+    y;
+    int celda=0;
+     
 
     printf("Dime lo que multiplica a x: ");
     scanf(" %lf", &a[0][0]);
