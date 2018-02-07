@@ -33,5 +33,15 @@ int main(){
     printf("\n");
     seg(b);
     printf("\n");
+    for(int i=0; i<N; i++){
+	    for(int j=0; j<N; j++){
+	    f=0;
+	    for(int k=0; k<N; k++)
+		    f+=a[i][k]*b[k][j];
+	    c[i][j]=f;
+	    printf("%4i", c[i][j]);
+	    }
+	    printf("\n");
+    }
     return EXIT_SUCCESS;
 }
