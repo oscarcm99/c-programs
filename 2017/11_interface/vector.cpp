@@ -12,8 +12,8 @@ int main(){
     printf("Introduce los vectores tal que asi [1 2 3] que asi se hagan las filas de cada columna.\n");
     printf("Introduce tu matriz: \n\n");
     do{
-        scanf(" %*1[[]");
-        scanf(" %lf", &num);
+        scanf(" %*1[[]"); //necesita un corchete para que el programa comience a funcionar
+        scanf(" %lf", &num);// lee los numeros
         if(filas==0)
             columnas++;
         columna++;
