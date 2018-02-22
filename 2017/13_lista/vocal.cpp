@@ -7,14 +7,15 @@ int main(){
     char frase[] = "Mi moto alpina derrapante";
     char *letra = frase;
     char guardado;
+    printf("Dame una vocal: ");
+    scanf(" %[aeiou]", &guardado);
     while(*letra != '\0'){
-        printf("Dame una vocal: ");
-        scanf(" %[aeiou]", &guardado);
-        if(*letra=='a'){
+        if(*letra=='a' || *letra=='e' || *letra=='i' || *letra=='o' || *letra=='u'){
             *letra = guardado;
+            letra++;
         }
-        printf("%c", *letra);
-        letra++;
+
+        printf("%c\n", *++letra);
     }
     return EXIT_SUCCESS;
 }
