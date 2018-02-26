@@ -5,17 +5,26 @@
 #define N 0x100
 //leer nombres
 //guardarlos en un array
+char *leenombre(){
+	char buffer[N];
+	int lenght;
+	char *algunsitio = NULL;
+	printf("Dime tu nombre: ");
+	fgets(buffer,N,stdin);
+	lenght = strlen(buffer);
+	algunsitio = (char *) malloc (lenght * sizeof(char));
+	strncpy(algunsitio,buffer,lenght-1);
+	algunsitio[lenght-1] = '\0';
+
+	return algunsitio;
+}
 int main(){
-    char **lista = NULL;//los punteros siempre iguales a null
-    char buffer[N];
-    int lenght;
-    while(){
-        printf("Dime tu nombre: ");
-        fgets(buffer,N,stdin);
-        lenght = strlen(buffer);
-        no_lo_se_ulio = (char *) malloc(lenght * sizeof(char));
-        strncpy(no_lo_se_ulio,buffer,lenght-1);
-        no_lo_se_ulio[lenght-1]='\0';
-    }
-    return EXIT_SUCCESS;
+	char **lista = NULL;//los punteros siempre iguales a null
+	bool ap = true;
+	while(ap){
+		ap = false;
+		algunsitio = leenombre();
+	}
+	free(algunsitio);
+	return EXIT_SUCCESS;
 }

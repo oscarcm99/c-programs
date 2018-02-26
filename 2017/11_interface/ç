@@ -1,4 +1,4 @@
-#ifndef __INTERFAZ_H__
+#ifndef
 #define __INTERFAZ_H__
 #include "comun.h"
 #define RED "\x1b[31m"
