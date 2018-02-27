@@ -31,7 +31,7 @@ int main(){
         for(int f=n+1; f<N; f++){
             k = a[f][n];
             for(int col=0; col<N; col++)
-            a[f][col] -= (a[n][col] * k);
+                a[f][col] -= (a[n][col] * k);
         }
         matriz(a);
     }
