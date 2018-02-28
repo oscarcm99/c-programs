@@ -22,6 +22,7 @@ int main(){
     l = (char **) realloc(l, 2*sizeof(char *));
     *(l+1) = (char *) malloc((longitud +1) * sizeof(char));
     strncpy(*(l+1), buffer, longitud+1);
+
     printf("Tu nombre: %s \n", *l);
     printf("Tu nombre: %s \n", *(l+1));
     free(*l);
