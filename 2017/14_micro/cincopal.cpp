@@ -4,28 +4,23 @@
 #include <string.h>
 #define N 0x100
 int main(){
-    int recorrido = 0;
+    int numpalabras;
     int lenght;
     char buffer[N];
-    char **l = NULL;
-    int o=1;
-    while(recorrido<5){
-       printf("Dime tu nombre: ");
-       scanf(" %[^\n]", buffer);
-       lenght = strlen(buffer);
+    char **lista = NULL;
 
-       l = (char **) malloc( o * sizeof(char *));
-       *l = (char *) malloc((lenght + 1) * sizeof(char));
-       strncpy(*l,buffer,lenght+1);
-       l++;
-       *l++;
-       o++;
-       recorrido++;
+    printf("Cuantos nombres quieres meter: ");
+    scanf(" %i", &numpalabras);
+    for(int c_palabras = 0; c_palabras<n_palabras; c_palabras++){
+        //Pedimos los nombres al usuario
+        printf("Nombre: ");
+        fgets(buffer,N,stdin);
+       //Agrandamos la lista
+       lista = (char **) realloc(lista,c_palabras * sizeof(char *));
+       //crear una palabra en una posicion de la lista
+       lenght = strlen(buffer);
+       *(lista + c_palabras-1) = (char *) malloc(lenght);
     }
 
-    for(int i=0; i<5; i++)
-        printf("Tu nombre: %s",*(l+i));
-    free(l);
-    free(*l);
     return EXIT_SUCCESS;
 }
