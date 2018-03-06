@@ -1,15 +1,14 @@
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <strings.h>
-
+#include <unistd.h>
 #include "global.h"
 #include "interfaz.h"
 
 #define MINIMO 2
 #define ASENTAR 3
-
-enum {actual,futuro,TIEMPOS};
+#define SUPERPO 6
+enum  {ACTUAL,FUTURO,TIEMPOS};
 
 int vecinos(int f, int c, int matriz[M][N]){
     int n_vecinos=0;
@@ -29,12 +28,29 @@ void calcular(int futuro[M][N], int actual[M][N]){
                 futuro[f][c]=0;
             if(n_vecinos == ASENTAR)
                 futuro[f][c]=1;
-            if(n_vecinos>ASENTAR)
-                fututro[f][c]=0;
+            if(n_vecinos>SUPERPO)
+                futuro[f][c]=0;
         }
 }
 int main(){
-    int actual[M][N],futuro[M][N];
+    int mundo[TIEMPOS][M][N];
+    int (*actual)[M][N] = &mundo[ACTUAL];
+    int (*futuro)[M][N] = &mundo[FUTURO];
+    int (*auxiliar)[M][N];
 
+
+    bzero(mundo[ACTUAL], sizeof(mundo[ACTUAL]));
+    rellena(*actual);
+    poblacion_inicial(mundo[ACTUAL]);
+
+    while(1){
+    system("clear");
+    calcular(*futuro, *actual);
+    auxiliar = actual;
+    actual =  futuro;
+    futuro = auxiliar;
+    pintar(mundo[ACTUAL]);
+    sleep(1);
+    }
     return EXIT_SUCCESS;
 }
