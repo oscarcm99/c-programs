@@ -4,9 +4,9 @@
 #ifdef __CPP
 extern "C"{
 #endif 
-void matriz(char a[N][N]);
+void matriz(int a[N][N]);
 void design();
-void cerouno(char *num);
+void cerouno(int *num);
 #ifdef __CPP
 }
 #endif

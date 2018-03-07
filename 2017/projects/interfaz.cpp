@@ -7,16 +7,16 @@ void design(){
 	system("clear");
 	system("toilet -fpagga CONWAY GAME");
 }
-void matriz(char a[N][N]){
+void matriz(int a[N][N]){
 	printf("\n");
 	for(int f=0; f<N; f++){
 		for(int c=0; c<N; c++)
-			printf("%4c", a[f][c]);
+			printf("%4i", a[f][c]);
 		printf("\n");
 	}
 	printf("\n\n");
 }
-void cerouno(char *num){
+void cerouno(int *num){
 	printf("Ponme 0's y 1's: ");
-	scanf(" %[01]", num);
+	scanf(" %i", num);
 }
