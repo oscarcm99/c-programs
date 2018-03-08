@@ -12,36 +12,36 @@
 #define N 20
 
 void palabra_a_adivinar(char palabra[N]){
-	printf("Introduce la palabra a adivinar: ");
-	fgets(palabra,N,stdin);
-	system("clear");
+    printf("Introduce la palabra a adivinar: ");
+    fgets(palabra,N,stdin);
+    system("clear");
 }
 void pedir_letras(char caracter){
-	printf("Introduce letras: ");
-	scanf(" %c", &caracter);
+    printf("Introduce letras: ");
+    scanf(" %c", &caracter);
 }
 int main(){
-	int fallos;
-	char letra;
-	char buffer[N];
-	char *pal = NULL;
-	int len;
-	//funcion que lee la palabra que hay que adivinar
-	palabra_a_adivinar(buffer);
-	//calculamos y reservamos espacio en la memoria para calcular posiciones
-	len = strlen(buffer);
-	pal = (char *) malloc(len * sizeof(char));
-	strncpy(pal,buffer,len-1);
-	*(pal + len -1)='\0';
+    int oportunidades = 6;
+    char letra;
+    char buffer[N];
+    char *pal = NULL;
+    int len;
+    //funcion que lee la palabra que hay que adivinar
+    palabra_a_adivinar(buffer);
+    //calculamos y reservamos espacio en la memoria para calcular posiciones
+    len = strlen(buffer);
+    pal = (char *) malloc(len * sizeof(char));
+    strncpy(pal,buffer,len-1);
+    *(pal + len -1)='\0';
+    while(oportunidades>=0){
+        pedir_letras(letra);
+        for(int i=0; i<len; i++)
+            if(letra == *(pal+i))
+                printf("Has acertado.\n");
+            else
+                oportunidades--;
 
-	do{
-		fallos = 6;
-		//pedimos letras al usuario
-		pedir_letras(letra);
-		for (int i=0; i<len; i++)
-			printf("%c",*(pal+i));
-	}while(fallos!=0);
-
-	free(pal);
-	return EXIT_SUCCESS;
+    }
+    free(pal);
+    return EXIT_SUCCESS;
 }
