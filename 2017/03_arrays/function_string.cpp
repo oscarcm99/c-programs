@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 0x100 
+#define N 0x100
 
 int main(){
     const char *p = "The world is"; //constante tipo cadena
@@ -16,7 +16,7 @@ int main(){
     char *d = frase;
 
     d = &frase[2];
-    
+
     frase[2] == 'v'; //notacion de matrices.
     *d == 'v'; //notación de punteros.
     *(d+2) == 'm'; // El 2 esta en la aritmética de punteros.

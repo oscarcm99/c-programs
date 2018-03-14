@@ -44,13 +44,13 @@ int main(){
     poblacion_inicial(mundo[ACTUAL]);
 
     while(1){
-    system("clear");
-    calcular(*futuro, *actual);
-    auxiliar = actual;
-    actual =  futuro;
-    futuro = auxiliar;
-    pintar(mundo[ACTUAL]);
-    sleep(1);
+        system("clear");
+        calcular(*futuro, *actual);
+        auxiliar = actual;
+        actual =  futuro;
+        futuro = auxiliar;
+        pintar(mundo[ACTUAL]);
+        sleep(1);
     }
     return EXIT_SUCCESS;
 }
