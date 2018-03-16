@@ -19,7 +19,7 @@ int main(){
         printf("Dime la palabra: ");
         fgets(buffer,N,stdin);
 
-        lista = (char **) realloc(lista, c * sizeof(char *));
+        lista = (char **) realloc(lista, (c+1) * sizeof(char *));
 
         lon = strlen(buffer);
         *(lista+c) = (char *) malloc(lon);
