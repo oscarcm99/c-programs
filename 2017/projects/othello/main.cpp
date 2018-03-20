@@ -2,7 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 8
-
+void inicio(){
+    system("clear");
+    system()
+}
 void introducir(char a[N][N]){
     char relleno = '\0';
     for(int f=0; f<N; f++){
