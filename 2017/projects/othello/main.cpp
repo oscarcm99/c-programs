@@ -27,6 +27,10 @@ void pintar_matriz(char a[N][N]){
     a[4][3] ='X';
     a[4][4] ='O';
 }
+void usuario(){
+    int f,c;
+    printf("Mete las coordenadas: ");
+}
 int main(){
         char a[N][N];
         introducir(a);
