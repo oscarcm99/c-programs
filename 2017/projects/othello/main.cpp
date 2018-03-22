@@ -3,6 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 #define N 8
+#define L 3
+#define M 4
 #define J1 'X'
 #define J2 'O'
 void inicio(){
@@ -32,24 +34,20 @@ void pintar_matriz(char a[N][N]){
         if(f<8)
             printf("\n\t______________________________________________________________\n");
         printf("\n");
-        a[3][3] = 'X';
-        a[3][4] = 'O';
-        a[4][3] = 'O';
-        a[4][4] = 'X';
+        a[L][L] = 'X';
+        a[L][M] = 'O';
+        a[M][L] = 'O';
+        a[M][M] = 'X';
     }
 }
 //mete los datos el usuario
 void usuario(char a[N][N]){
     int f,c,k;
-    int fila =3,
-        columna=3;
+
     do{
         printf("Mete las coordenadas adyancentes a los puntos ya puestos: ");
         fflush(stdin);
-        for(int fv = fila -1; fv<fila+2; fv++)
-            for(int cv = columna -1; cv<columna+2; cv++)
-                if(fv == fila -1 && cv == columna +2 || fv == fila +2 && cv == columna +2 || fv == fila-1 && cv == columna-1 || fv == fila +2 && cv == columna -1)
-                    scanf(" %i, %i", &f,&c);
+        scanf(" %i, %i", &f,&c);
         for(int fil=0; fil<N;fil++){
             k=0;
             for(int col=0; col<N; col++)
@@ -69,12 +67,9 @@ void cpu(char a[N][N]){
     int columna = 3;
     srand(time(NULL));
     do{
-        for(int fv = fila -1; fv<fila+2; fv++)
-            for(int cv = columna -1; cv<columna+2; cv++)
-                if(fv == fila -1 && cv == columna +2 || fv == fila +2 && cv == columna +2 || fv == fila-1 && cv == columna-1 || fv == fila +2 && cv == columna -1){ 
-                    f = rand() % N;
-                    c = rand() % N;
-                }
+
+        f = rand() % N;
+        c = rand() % N;
         k = 0;
         if(a[f][c] == 'X' || a[f][c] == 'O')
             k=1;
