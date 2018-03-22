@@ -29,6 +29,7 @@ void pintar_matriz(char a[N][N]){
         printf("\n");
     }
 }
+//mete los datos el usuario
 void usuario(char a[N][N]){
     int f,c,k;
     do{
@@ -39,12 +40,14 @@ void usuario(char a[N][N]){
             for(int col=0; col<N; col++)
                 if(a[f][c] == 'X' || a[f][c] == 'O'){
                     k=1;
-                    printf("La casilla está ocupada.\n");
                 }
         }
+        if(a[f][c] == 'X' || a[f][c] == 'O')
+            printf("La casilla está ocupada.\n");
     }while(k == 1);
     a[f][c] = 'X';
 }
+//mete la computadora los datos
 void cpu(char a[N][N]){
     int f,c,k;
     srand(time(NULL));
@@ -54,14 +57,22 @@ void cpu(char a[N][N]){
             k = 0;
             if(a[f][c] == 'X' || a[f][c] == 'O')
                 k=1;
-        }while(k == 1);
+        }while(k == 1 || f<0 || f>7 || c<0 || c>7);
     a[f][c] = 'O';
 }
 int main(){
     char a[N][N];
     int fila,columna;
-    inicio();
+    int intentos;
+    intentos = 0;
     introducir(a);
+    do{
+        inicio();
+        pintar_matriz(a);
+        usuario(a);
+        cpu(a);
+        intentos++;
+    }while(intentos<9);
     pintar_matriz(a);
     return EXIT_SUCCESS;
 }
