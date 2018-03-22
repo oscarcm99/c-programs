@@ -18,24 +18,39 @@ void introducir(char a[N][N]){
 }
 void pintar_matriz(char a[N][N]){
     int num = 0;
+    int mun = 0;
+    for(int i = 0; i<N; i++)
+        printf("\t  %i", num++);
+    printf("\n");
     printf("\n\t______________________________________________________________\n");
     printf("\n");
     for(int f=0; f<N; f++){
+        printf("%i\n", mun++);
         for(int c=0; c<N; c++)
             if(c<8)
-                printf("\t  %c   |", a[f][c]);
+                printf("\t  %c   |",a[f][c]);
         if(f<8)
             printf("\n\t______________________________________________________________\n");
         printf("\n");
+        a[3][3] = 'X';
+        a[3][4] = 'O';
+        a[4][3] = 'O';
+        a[4][4] = 'X';
     }
 }
 //mete los datos el usuario
 void usuario(char a[N][N]){
     int f,c,k;
+    int fila =3,
+        columna=3;
     do{
-        printf("Mete las coordenadas: ");
-        scanf(" %i, %i", &f,&c);
-        for(int fila=0; fila<N;fila++){
+        printf("Mete las coordenadas adyancentes a los puntos ya puestos: ");
+        fflush(stdin);
+        for(int fv = fila -1; fv<fila+2; fv++)
+            for(int cv = columna -1; cv<columna+2; cv++)
+                if(fv == fila -1 && cv == columna +2 || fv == fila +2 && cv == columna +2 || fv == fila-1 && cv == columna-1 || fv == fila +2 && cv == columna -1)
+                    scanf(" %i, %i", &f,&c);
+        for(int fil=0; fil<N;fil++){
             k=0;
             for(int col=0; col<N; col++)
                 if(a[f][c] == 'X' || a[f][c] == 'O'){
@@ -44,20 +59,26 @@ void usuario(char a[N][N]){
         }
         if(a[f][c] == 'X' || a[f][c] == 'O')
             printf("La casilla está ocupada.\n");
-    }while(k == 1);
+    }while(k == 1 || f<0 || f>7 || c<0 || c>7);
     a[f][c] = 'X';
 }
 //mete la computadora los datos
 void cpu(char a[N][N]){
     int f,c,k;
+    int fila = 3;
+    int columna = 3;
     srand(time(NULL));
-        do{
-            f = rand() % N;
-            c = rand() % N;
-            k = 0;
-            if(a[f][c] == 'X' || a[f][c] == 'O')
-                k=1;
-        }while(k == 1 || f<0 || f>7 || c<0 || c>7);
+    do{
+        for(int fv = fila -1; fv<fila+2; fv++)
+            for(int cv = columna -1; cv<columna+2; cv++)
+                if(fv == fila -1 && cv == columna +2 || fv == fila +2 && cv == columna +2 || fv == fila-1 && cv == columna-1 || fv == fila +2 && cv == columna -1){ 
+                    f = rand() % N;
+                    c = rand() % N;
+                }
+        k = 0;
+        if(a[f][c] == 'X' || a[f][c] == 'O')
+            k=1;
+    }while(k == 1 || f<0 || f>7 || c<0 || c>7);
     a[f][c] = 'O';
 }
 int main(){
