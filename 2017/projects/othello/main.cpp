@@ -11,6 +11,10 @@ void inicio(){
     system("clear");
     system("\ttoilet -fpagga REVERSI");
 }
+bool es_valida(char a[N][N]){
+    int f,c;
+    for(int fv=0; fv<)
+}
 void introducir(char a[N][N]){
     char relleno = '\0';
     for(int f=0; f<N; f++){
@@ -47,6 +51,8 @@ void usuario(char a[N][N]){
     do{
         printf("Mete las coordenadas adyancentes a los puntos ya puestos: ");
         fflush(stdin);
+        /*if(a[f][c] == 'X' || a[f][c] == 'O')
+            if(a[f-1][c-1] == " " || a[f-1][c+1] == " ")*/
         scanf(" %i, %i", &f,&c);
         for(int fil=0; fil<N;fil++){
             k=0;
