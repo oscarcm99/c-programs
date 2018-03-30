@@ -12,19 +12,17 @@ void inicio(){
 	system("\ttoilet -fpagga REVERSI");
 }
 bool es_valida_usuario(char a[N][N], int f, int c){
-	if(a[f-1][c-1] == 'O' || a[f-1][c] == 'O' || a[f-1][c+1] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O'|| a[f+1][c-1] == 'O' || a[f+1][c] == 'O' || a[f+1][c+1] == 'O')
+	if( a[f-1][c] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O'|| a[f+1][c] == 'O')
 		return true;
-	else 
-		if(a[f-1][c-1] == 'X' || a[f-1][c] == 'X' || a[f-1][c+1] == 'X' || a[f][c-1] == 'X' || a[f][c+1] == 'X' || a[f+1][c-1] == 'X' || a[f+1][c] == 'X' || a[f+1][c+1] == 'X'){
+	else{
 			printf("La casilla no es adyacente.\n");
 			return false;
 		}
 }
 bool es_valida_cpu(char a[N][N], int f, int c){
-	if(a[f-1][c-1] == 'X' || a[f-1][c] == 'X' || a[f-1][c+1] == 'X' || a[f][c-1] == 'X' || a[f][c+1] == 'X' || a[f+1][c-1] == 'X' || a[f+1][c] == 'X' || a[f+1][c+1] == 'X')
+	if( a[f-1][c] == 'X' ||  a[f][c-1] == 'X' || a[f][c+1] == 'X' || a[f+1][c] == 'X')
 		return true;
-	else
-		if(a[f-1][c-1] == 'O' || a[f-1][c] == 'O' || a[f-1][c+1] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O' || a[f+1][c-1] == 'O' || a[f+1][c] == 'O' || a[f+1][c+1] == 'O'){
+	else{
 			printf("La casilla no es adyacente.\n");
 			return false;
 		}
