@@ -11,11 +11,23 @@ void inicio(){
 	system("clear");
 	system("\ttoilet -fpagga REVERSI");
 }
-bool es_valida(char a[N][N], int f, int c){
-	if(a[f-1][c-1] == 'X' || a[f-1][c-1] == 'O' || a[f-1][c] == 'X' || a[f-1][c] == 'O' || a[f-1][c+1] == 'X' || a[f-1][c+1] == 'O' || a[f][c-1] == 'X' || a[f][c-1] == 'O' || a[f][c+1] == 'X' || a[f][c+1] == 'O'|| a[f+1][c-1] == 'X' || a[f+1][c-1] == 'O' || a[f+1][c] == 'X' || a[f+1][c] == 'O' || a[f+1][c+1] == 'X' || a[f+1][c+1] == 'O')
+bool es_valida_usuario(char a[N][N], int f, int c){
+	if(a[f-1][c-1] == 'O' || a[f-1][c] == 'O' || a[f-1][c+1] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O'|| a[f+1][c-1] == 'O' || a[f+1][c] == 'O' || a[f+1][c+1] == 'O')
+		return true;
+	else 
+		if(a[f-1][c-1] == 'X' || a[f-1][c] == 'X' || a[f-1][c+1] == 'X' || a[f][c-1] == 'X' || a[f][c+1] == 'X' || a[f+1][c-1] == 'X' || a[f+1][c] == 'X' || a[f+1][c+1] == 'X'){
+			printf("La casilla no es adyacente.\n");
+			return false;
+		}
+}
+bool es_valida_cpu(char a[N][N], int f, int c){
+	if(a[f-1][c-1] == 'X' || a[f-1][c] == 'X' || a[f-1][c+1] == 'X' || a[f][c-1] == 'X' || a[f][c+1] == 'X' || a[f+1][c-1] == 'X' || a[f+1][c] == 'X' || a[f+1][c+1] == 'X')
 		return true;
 	else
-		return false;
+		if(a[f-1][c-1] == 'O' || a[f-1][c] == 'O' || a[f-1][c+1] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O' || a[f+1][c-1] == 'O' || a[f+1][c] == 'O' || a[f+1][c+1] == 'O'){
+				printf("La casilla no es adyacente.\n");
+				return false;
+		}
 }
 void introducir(char a[N][N]){
 	char relleno = '\0';
@@ -54,7 +66,7 @@ void usuario(char a[N][N]){
 		do{printf("Mete las coordenadas adyancentes a los puntos ya puestos: ");
 			fflush(stdin);
 			scanf(" %i, %i", &f,&c);
-		}while(!es_valida(a,f,c));
+		}while(!es_valida_usuario(a,f,c));
 		for(int fil=0; fil<N;fil++){
 			k=0;
 			for(int col=0; col<N; col++)
@@ -62,9 +74,28 @@ void usuario(char a[N][N]){
 					k=1;
 				}
 		}
-		if(a[f][c] == 'X' || a[f][c] == 'O')
+		if(a[f][c] == 'X' || a[f][c] == 'O'){
+			k = 1;
 			printf("La casilla está ocupada.\n");
+		}
+	if(a[f-1][c-1] == 'O')
+		a[f-1][c-1] == 'X';
+	if(a[f-1][c] == 'O')
+		a[f-1][c] == 'X';
+	if(a[f-1][c+1] == 'O')
+		a[f-1][c+1] == 'X';
+	if(a[f][c-1] == 'O')
+		a[f][c-1] == 'X';
+	if(a[f][c+1] == 'O')
+		a[f][c+1] == 'X';
+	if(a[f+1][c-1] == 'O')
+		a[f+1][c-1] == 'X';
+	if(a[f+1][c] == 'O')
+		a[f+1][c] == 'X';
+	if(a[f+1][c+1] == 'O')
+		a[f+1][c+1] == 'X';
 	}while(k == 1 || f<0 || f>7 || c<0 || c>7);
+
 	a[f][c] = 'X';
 }
 //mete la computadora los datos
@@ -75,12 +106,29 @@ void cpu(char a[N][N]){
 	srand(time(NULL));
 	do{
 
-	do{	f = rand() % N;
-		c = rand() % N;
-}while(!es_valida(a,f,c));
+		do{	f = rand() % N;
+			c = rand() % N;
+		}while(!es_valida_cpu(a,f,c));
 		k = 0;
 		if(a[f][c] == 'X' || a[f][c] == 'O')
 			k=1;
+	if(a[f-1][c-1] == 'X')
+		a[f-1][c-1] == 'O';
+	if(a[f-1][c] == 'X')
+		a[f-1][c] == 'O';
+	if(a[f-1][c+1] == 'X')
+		a[f-1][c+1] == 'O';
+	if(a[f][c-1] == 'X')
+		a[f][c-1] == 'O';
+	if(a[f][c+1] == 'X')
+		a[f][c+1] == 'O';
+	if(a[f+1][c-1] == 'X')
+		a[f+1][c-1] == 'O';
+	if(a[f+1][c] == 'X')
+		a[f+1][c] == 'O';
+	if(a[f+1][c+1] == 'X')
+		a[f+1][c+1] == 'O';
+
 	}while(k == 1 || f<0 || f>7 || c<0 || c>7);
 	a[f][c] = 'O';
 }
@@ -96,7 +144,7 @@ int main(){
 		usuario(a);
 		cpu(a);
 		intentos++;
-	}while(intentos<9);
+	}while(intentos<32);
 	pintar_matriz(a);
 	return EXIT_SUCCESS;
 }
