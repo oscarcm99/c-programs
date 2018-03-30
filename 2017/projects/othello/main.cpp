@@ -25,8 +25,8 @@ bool es_valida_cpu(char a[N][N], int f, int c){
 		return true;
 	else
 		if(a[f-1][c-1] == 'O' || a[f-1][c] == 'O' || a[f-1][c+1] == 'O' || a[f][c-1] == 'O' || a[f][c+1] == 'O' || a[f+1][c-1] == 'O' || a[f+1][c] == 'O' || a[f+1][c+1] == 'O'){
-				printf("La casilla no es adyacente.\n");
-				return false;
+			printf("La casilla no es adyacente.\n");
+			return false;
 		}
 }
 void introducir(char a[N][N]){
@@ -79,24 +79,24 @@ void usuario(char a[N][N]){
 			printf("La casilla está ocupada.\n");
 		}
 	if(a[f-1][c-1] == 'O')
-		a[f-1][c-1] == 'X';
+		a[f-1][c-1] = 'X';
 	if(a[f-1][c] == 'O')
-		a[f-1][c] == 'X';
+		a[f-1][c] = 'X';
 	if(a[f-1][c+1] == 'O')
-		a[f-1][c+1] == 'X';
+		a[f-1][c+1] = 'X';
 	if(a[f][c-1] == 'O')
-		a[f][c-1] == 'X';
+		a[f][c-1] = 'X';
 	if(a[f][c+1] == 'O')
-		a[f][c+1] == 'X';
+		a[f][c+1] = 'X';
 	if(a[f+1][c-1] == 'O')
-		a[f+1][c-1] == 'X';
+		a[f+1][c-1] = 'X';
 	if(a[f+1][c] == 'O')
-		a[f+1][c] == 'X';
+		a[f+1][c] = 'X';
 	if(a[f+1][c+1] == 'O')
-		a[f+1][c+1] == 'X';
-	}while(k == 1 || f<0 || f>7 || c<0 || c>7);
+		a[f+1][c+1] = 'X';
 
-	a[f][c] = 'X';
+	}while(k == 1 || f<0 || f>7 || c<0 || c>7);
+a[f][c] = 'X';
 }
 //mete la computadora los datos
 void cpu(char a[N][N]){
@@ -113,21 +113,21 @@ void cpu(char a[N][N]){
 		if(a[f][c] == 'X' || a[f][c] == 'O')
 			k=1;
 	if(a[f-1][c-1] == 'X')
-		a[f-1][c-1] == 'O';
+		a[f-1][c-1] = 'O';
 	if(a[f-1][c] == 'X')
-		a[f-1][c] == 'O';
+		a[f-1][c] = 'O';
 	if(a[f-1][c+1] == 'X')
-		a[f-1][c+1] == 'O';
+		a[f-1][c+1] = 'O';
 	if(a[f][c-1] == 'X')
-		a[f][c-1] == 'O';
+		a[f][c-1] = 'O';
 	if(a[f][c+1] == 'X')
-		a[f][c+1] == 'O';
+		a[f][c+1] = 'O';
 	if(a[f+1][c-1] == 'X')
-		a[f+1][c-1] == 'O';
+		a[f+1][c-1] = 'O';
 	if(a[f+1][c] == 'X')
-		a[f+1][c] == 'O';
+		a[f+1][c] = 'O';
 	if(a[f+1][c+1] == 'X')
-		a[f+1][c+1] == 'O';
+		a[f+1][c+1] = 'O';
 
 	}while(k == 1 || f<0 || f>7 || c<0 || c>7);
 	a[f][c] = 'O';
