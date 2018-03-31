@@ -7,6 +7,7 @@
 #define M 4
 #define J1 'X'
 #define J2 'O'
+#define W 30
 int ganador(char a[N][N]){
 
 	int lon1=0;
@@ -180,18 +181,19 @@ int main(){
 		inicio();
 		pintar_matriz(a);
 		usuario1(a);
+		pintar_matriz(a);
 		usuario2(a);
 		intentos++;
-	}while(intentos<30);
+	}while(intentos<W);
 	pintar_matriz(a);
 	enteros = ganador(a);
 	if(enteros == 0)
-		printf("Has ganado.\n");
+		printf("Ha ganado el jugador 1.\n");
 	else
 		if(enteros == 1)
-			printf("Has perdido.\n");
+			printf("Ha ganado el jugador 2.\n");
 		else
-			printf("Has empatado.\n");
+			printf("Habeis empatado.\n");
 
 	return EXIT_SUCCESS;
 }
