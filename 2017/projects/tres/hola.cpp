@@ -72,12 +72,12 @@ void tablero(char a[N][N]){
         printf("\n");
     }
 }
-void usuario(char a[N][N]){
+void usuario1(char a[N][N]){
     int f,c,k;
     int eleccion;
     do{
         do{
-            printf("Coloca una ficha: ");
+            printf("Coloca una ficha J1: ");
             fflush(stdin);
             scanf(" %i", &eleccion);
         }while(eleccion < 1 || eleccion > 9);
@@ -155,15 +155,104 @@ void usuario(char a[N][N]){
                     printf("Esta casilla está ocupada.\n");
                 }
                 break;
-            default: 
+            default:
                 printf("No hay numero.\n");
                 break;
         }
     }while(k==1);
     a[f][c] = 'X';
 }
+void usuario2(char a[N][N]){
+    int f,c,k;
+    int eleccion;
+    do{
+        do{
+            printf("Coloca una ficha J2: ");
+            fflush(stdin);
+            scanf(" %i", &eleccion);
+        }while(eleccion < 1 || eleccion > 9);
+        k = 0;
+        switch(eleccion){
+            case 1:
+                f=0;
+                c=0;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 2:
+                f=0;
+                c=1;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 3:
+                f=0;
+                c=2;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 4:
+                f=1;
+                c=0;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 5:
+                f=1;
+                c=1;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 6:
+                f=1;
+                c=2;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 7:
+                f=2;
+                c=0;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 8:
+                f=2;
+                c=1;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            case 9:
+                f=2;
+                c=2;
+                if(a[f][c] == 'X' || a[f][c] == 'O'){
+                    k=1;
+                    printf("Esta casilla está ocupada.\n");
+                }
+                break;
+            default:
+                printf("No hay numero.\n");
+                break;
+        }
+    }while(k==1);
+    a[f][c] = 'O';
+}
 void cpu(char a[N][N]){
-    char eleccion;
     int f,c,k;
     srand(time(NULL));
     do{
@@ -177,26 +266,56 @@ void cpu(char a[N][N]){
 }
 void loop(char a[N][N]){
     int f,c;
-    f=0;
-
-    introducir(a);
-
-    do{
-        system("clear");
-        tablero(a);
-        if(f%2==0)
-            usuario(a);
-        else
-            cpu(a);
-        c = ganador(a);
-        f++;
-    }while(f<9 && c == 2);
+    unsigned opcion;
     system("clear");
-    tablero(a);
-    if (c == 0)
-        printf("Has ganado\n");
-    else if(c == 1)
-        printf("has perdido. \n");
-    else
-        printf("Has empatado.\n");
+    f = 0;
+    printf("Elije la opcion que desees escoger:\n1.Un jugador vs CPU.\n2.Dos jugadores.\n");
+    scanf(" %u", &opcion);
+    switch(opcion){
+        case 1:
+            introducir(a);
+            do{
+                system("clear");
+                tablero(a);
+                if(f%2==0)
+                    usuario1(a);
+                else
+                    cpu(a);
+                c = ganador(a);
+                f++;
+            }while(f<9 && c == 2);
+            system("clear");
+            tablero(a);
+            if (c == 0)
+                printf("Has ganado\n");
+            else if(c == 1)
+                printf("has perdido. \n");
+            else
+                printf("Has empatado.\n");
+            break;
+        case 2:
+            introducir(a);
+            do{
+                system("clear");
+                tablero(a);
+                if(f%2==0)
+                    usuario1(a);
+                else
+                    usuario2(a);
+                c = ganador(a);
+                f++;
+            }while(f<9 && c == 2);
+            system("clear");
+            tablero(a);
+            if (c == 0)
+                printf("Ha ganado el J1\n");
+            else if(c == 1)
+                printf("Ha ganado el J2. \n");
+            else
+                printf("Habeis empatado.\n");
+            break;
+        default:
+            printf("ERROR\n");
+            break;
+    }
 }
