@@ -33,11 +33,23 @@ char letras_usuario(){
     scanf(" %c", &letra);
     return letra;
 }
-bool es_valida(){
-
+bool es_valida(char *palabra, char letra){
+for(int i=0; i<longitud; i++){
+	if(*(palabra+i) == letra){
+		return true;
+	}
+	else{
+		printf("Has fallado.\n");
+		return false;
+	}
+}
 }
 int main(){
     char *palabra = init();
     char caracter = letras_usuario();
+    if(!es_valida(palabra,caracter))
+	    printf("Acertaste.\n");
+    else
+	    printf("Has fallado.\n");
     return EXIT_SUCCESS;
 }
