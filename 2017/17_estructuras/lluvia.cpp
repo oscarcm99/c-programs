@@ -12,7 +12,7 @@ struct Coordenada{
 void pintar(struct Coordenada lista[N]){
     clear();
     for(int i=0; i<N;i++)
-        mvprintw(lista[i].y % LINES, lista[i].x,":V");
+        mvprintw(lista[i].y % LINES, lista[i].x,"|");
     refresh();
 }
 void actualizar(struct Coordenada lista[N]){
@@ -38,7 +38,7 @@ int main(){
     while(1){
         actualizar(gota);
         pintar(gota);
-        usleep(200000);
+        usleep(2000);
     }
     curs_set(1);
     endwin();
