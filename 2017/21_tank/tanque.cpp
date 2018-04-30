@@ -61,7 +61,7 @@ void shoot(Movil bullet){
 }
 int main(){
 	int turn = 0;
-	Movil bullet = {{},{},{},{}};
+	Movil bullet = {{0.,0.},{0.,0.},{0.,0.},{0.,-9.8}};
 	Player player[] = {
 		{{ {5., 1.},{1, 0},{0., 0.},{0., 0.} },100,20},
 		{{ {100., 1.},{1, 0},{0., 0.},{0., 0.} },100,20}
@@ -75,6 +75,8 @@ int main(){
 		bullet.pos = player[turn % 2].cuerpo.pos;
 		bullet.vel = ask_shot(turn);
 		shoot(bullet);
+		if(bullet.pos.y == player[0].cuerpo.pos.y || bullet.pos.y == player[1].cuerpo.pos.y)
+			mvprintw(5,2,"Dañado");
 		turn++;
 	}
 	curs_set(1);
