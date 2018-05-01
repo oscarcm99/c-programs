@@ -24,6 +24,12 @@ typedef struct{
 	int vida;
 	int ammo;
 } Player;
+void title(){
+system("clear");
+system("toilet -fpagga TANK");
+printf("Juego en Ncurses sobre dos tanques que se disparan.\n");
+sleep(2);
+}
 void draw(Player jugador[2]){
 	mvprintw(LINES - jugador[0].cuerpo.pos.y, jugador[0].cuerpo.pos.x,"▞█████▚");
 	mvprintw(LINES - jugador[1].cuerpo.pos.y, jugador[1].cuerpo.pos.x,"▞█████▚");
@@ -59,6 +65,13 @@ void shoot(Movil bullet){
 		usleep(1000000 * DELTA_T);
 	}while(bullet.pos.y > 0);
 }
+void damage(Movil bullet, Player player[2]){
+	if((bullet.pos.y == player[0].cuerpo.pos.y)||(bullet.pos.y == player[0].cuerpo.pos.x))
+		mvprintw(5,2,"Jugador 1 dañado");
+	if((bullet.pos.y == player[1].cuerpo.pos.y)||(bullet.pos.y == player[1].cuerpo.pos.x)) 
+		mvprintw(6,2,"Jugador 2 dañado");
+
+}
 int main(){
 	int turn = 0;
 	Movil bullet = {{0.,0.},{0.,0.},{0.,0.},{0.,-9.8}};
@@ -66,6 +79,7 @@ int main(){
 		{{ {5., 1.},{1, 0},{0., 0.},{0., 0.} },100,20},
 		{{ {100., 1.},{1, 0},{0., 0.},{0., 0.} },100,20}
 	};
+	title();
 	setlocale(LC_ALL, "");
 	initscr();
 	curs_set(0);
@@ -75,11 +89,11 @@ int main(){
 		bullet.pos = player[turn % 2].cuerpo.pos;
 		bullet.vel = ask_shot(turn);
 		shoot(bullet);
-		if(bullet.pos.y == player[0].cuerpo.pos.y || bullet.pos.y == player[1].cuerpo.pos.y)
-			mvprintw(5,2,"Dañado");
+		damage(bullet,player);
 		turn++;
 	}
 	curs_set(1);
 	endwin();
+	clear();
 	return EXIT_SUCCESS;
 }
