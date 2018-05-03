@@ -17,6 +17,8 @@ typedef struct{
 	Coord dir;
 	Coord vel;
 	Coord acc;
+        Coord posicion_min;
+        Coord posicion_max;
 } Movil;
 
 typedef struct{
@@ -60,17 +62,19 @@ void shoot(Movil bullet){
 		bullet.pos.y += bullet.vel.y * DELTA_T;
 
 		mvprintw(LINES -ini.y, ini.x," ");
-		mvprintw(LINES -bullet.pos.y,bullet.pos.x,"O");
+		mvprintw(LINES -bullet.pos.y,bullet.pos.x,"-");
 		refresh();
 		usleep(1000000 * DELTA_T);
 	}while(bullet.pos.y > 0);
 }
 void damage(Movil bullet, Player player[2]){
-	if((bullet.pos.y == player[0].cuerpo.pos.y)||(bullet.pos.y == player[0].cuerpo.pos.x))
-		mvprintw(5,2,"Jugador 1 dañado");
-	if((bullet.pos.y == player[1].cuerpo.pos.y)||(bullet.pos.y == player[1].cuerpo.pos.x)) 
-		mvprintw(6,2,"Jugador 2 dañado");
+      player[0].cuerpo.posicion_min.x = 5.;
+      player[0].cuerpo.posicion_max.x = 11.;
+      player[1].cuerpo.posicion_min.x = 100.;
+      player[1].cuerpo.posicion_max.x = 106.;
 
+      if((player[0].cuerpo.posicion_min.x<= bullet.pos.x < player[0].cuerpo.posicion_max.x) && (bullet.pos.y == player[0].cuerpo.pos.y));
+      mvprintw(6,2,"Dañado");
 }
 int main(){
 	int turn = 0;
