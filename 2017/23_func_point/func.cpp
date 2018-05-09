@@ -17,7 +17,7 @@ int main(){
     if(su == 'b')
         p = &b;
     printf("%i\n", *p);
-
+    suma(a,b);
     resta = &suma;
     printf("%i\n",(*resta)(a,b));
 
