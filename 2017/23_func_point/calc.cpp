@@ -98,7 +98,7 @@ int main(){
 		}
 		veces--;
 	}
-	for(int i=0; i<veces; i++){
+	for(int i=0; i<MAX; i++){
 		int num = pop(&op);
 		double res = catalogo[num].op((double) pop(&datos), (double) pop(&datos) );
 		printf("%s\n", catalogo[num].nombre);

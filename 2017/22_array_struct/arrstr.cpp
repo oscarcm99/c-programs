@@ -44,7 +44,7 @@ void draw(Sprite object[N]){
         mvprintw(LINES/2 - object[i].pos.y, COLS/2 - object[i].pos.x,"-");
     }
     attron(COLOR_PAIR(3));
-    mvprintw( LINES/2 -(object[0].pos.y + object[1].pos.y + object[2].pos.y) / 3.,  COLS / 2 +(object[0].pos.x + object[1].pos.x + object[2].pos.x) / 3., "SERGIO");
+    mvprintw( LINES/2 -(object[0].pos.y + object[1].pos.y + object[2].pos.y) / 3.,  COLS / 2 +(object[0].pos.x + object[1].pos.x + object[2].pos.x) / 3., "-");
     attron(COLOR_PAIR(1));
     refresh();
 }
