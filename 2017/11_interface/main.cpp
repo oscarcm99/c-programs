@@ -3,14 +3,14 @@
 #include "comun.h"
 #include "interfaz.h"
 int main(){
-int a[M][N];
-bzero(a, sizeof(a));
-for(int f=0; f<M; f++)
-	for(int c=0; c<N; c++){
-		principio();
-		ver(a);
-		numero(&a[f][c]);
+	int a[M][N];
+	bzero(a, sizeof(a));
+	for(int f=0; f<M; f++)
+		for(int c=0; c<N; c++){
+			principio();
+			ver(a);
+			numero(&a[f][c]);
 
-}
-return EXIT_SUCCESS;
+		}
+	return EXIT_SUCCESS;
 }

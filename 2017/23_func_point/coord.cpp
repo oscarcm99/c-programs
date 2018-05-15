@@ -3,63 +3,60 @@
 #include <stdlib.h>
 #define N 0x100
 #define MAX 10
-typedef struct {
-    double x;
-    double y;
-}Coord;
-typedef struct {
-    Coord vel;
-    Coord pos;
-    Coord acc;
-    void(*haz)(Coord *vel, Coord *pos, Coord *acc);
-} Movil;
 typedef struct{
-    Movil data[MAX];
-    int cima;
-} Pila;
-
-bool push(Movil dato, Pila *pila){
-    if(pila->cima >= MAX){
-        return false;
-    }
-    pila->data[pila->cima++]=dato;
-    return true;
+	double x;
+	double y;
+}Coord;
+typedef struct{
+	Coord vel;
+	Coord pos;
+	Coord acc;
+	void(*funcion)(Coord *vel, Coord *pos, Coord *acc);
+}Cosa;
+typedef struct{
+        Cosa data[MAX];
+	int cima;
+}Pila;
+bool push(Cosa cosa, Pila *pila){
+	if(pila->cima >= MAX)
+		return false;
+	pila->data[pila->cima++] = cosa;
+	return true;
+}
+Cosa pop(Pila *pila){
+	if(pila->cima == 0){
+	return Cosa();
+	}
+	return pila->data[--pila->cima];
 }
 
-Movil pop(Pila *pila){
-    if(pila->cima == 0){
-        return Movil();
-    }
-    return pila->data[--pila->cima];
+void coordx(Coord *vel, Coord *pos, Coord *acc){
+	(*vel).x += (*acc).x;
+	(*pos).x += (*vel).x;
 }
-
-void one(Coord *vel, Coord *pos, Coord *acc){
-    (*vel).x += (*acc).x;
-    (*pos).x += (*vel).x;
+void coordy(Coord *vel, Coord *pos, Coord *acc){
+	(*vel).y += (*acc).y;
+	(*pos).y += (*vel).y;
 }
-
-void two(Coord *vel, Coord *pos, Coord *acc){
-    (*vel).x += (*acc).x;
-    (*pos).x += (*vel).x;
-}
-
-
 int main(){
-    int veces = 0;
-    Pila pila;
-    pila.cima = 0;
-    Movil movil1 = {{0,0},{2,5},{0,0},one}, movil2 {{0,0},{1,2},{0,0},one}, movil3 {{0,0},{3,5},{0,0},two}, movil4 {{0,0},{5,1},{0,0},two};
+   int veces = 0;
+   Pila pila;
+   pila.cima = 0;
+   Cosa uno = {{1.,3.},{0.5,1.3},{0.,-9.8},coordy},
+	dos = {{1.4,2.1},{0.4,1.1},{0.,-9.8},coordx},
+	tres = {{1.2,3.3},{0.1,0.9},{0.,-9.8},coordx},
+	cuatro = {{1.3,4.5},{0.7, 0.3},{0.,-9.8},coordy};
+   push(uno, &pila);
+   push(dos, &pila);
+   push(tres, &pila);
+   push(cuatro, &pila);
 
-    push(movil1,&pila);
-    push(movil2,&pila);
-    push(movil3,&pila);
-    push(movil4,&pila);
 
-    while(veces<4){
-        Movil movil = pop(&pila);
-        movil.haz(&movil.vel, &movil.pos, &movil.acc);
-        printf(" %.2lf, %.2lf\n", movil.pos.x,movil.pos.y);
-        veces++;
-    }
-    return EXIT_SUCCESS;
+   while(veces<4){
+   Cosa cosa = pop(&pila);
+   cosa.funcion(&cosa.vel, &cosa.pos, &cosa.acc);
+   printf("\t %.2lf | %.2lf\n", cosa.pos.x, cosa.pos.y);
+   veces++;
+   }
+   return EXIT_SUCCESS;
 }
