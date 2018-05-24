@@ -10,13 +10,13 @@ typedef struct{
 }Pila;
 
 void push(int numero, Pila *posicion){
-    DEBUG("-> %5i\n", numero);
+    DEBUG("PUSH-> %5i\n", numero);
     posicion->data[posicion->cima] = numero;
     posicion->cima++;
 }
 int pop(Pila *posicion){
     posicion->cima--;
-    DEBUG("<- %5i\n", posicion->data[posicion->cima]);
+    DEBUG("POP<- %5i\n", posicion->data[posicion->cima]);
     return posicion->data[posicion->cima];
 }
 int main(){

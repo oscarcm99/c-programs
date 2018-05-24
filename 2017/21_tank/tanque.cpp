@@ -17,8 +17,8 @@ typedef struct{
 	Coord dir;
 	Coord vel;
 	Coord acc;
-        Coord posicion_min;
-        Coord posicion_max;
+	Coord posicion_min;
+	Coord posicion_max;
 } Movil;
 
 typedef struct{
@@ -27,10 +27,10 @@ typedef struct{
 	int ammo;
 } Player;
 void title(){
-system("clear");
-system("toilet -fpagga TANK");
-printf("Juego en Ncurses sobre dos tanques que se disparan.\n");
-sleep(2);
+	system("clear");
+	system("toilet -fpagga TANK");
+	printf("Juego en Ncurses sobre dos tanques que se disparan.\n");
+	sleep(2);
 }
 void draw(Player jugador[2]){
 	mvprintw(LINES - jugador[0].cuerpo.pos.y, jugador[0].cuerpo.pos.x,"▞█████▚");
@@ -68,13 +68,13 @@ void shoot(Movil bullet){
 	}while(bullet.pos.y > 0);
 }
 void damage(Movil bullet, Player player[2]){
-      player[0].cuerpo.posicion_min.x = 5.;
-      player[0].cuerpo.posicion_max.x = 11.;
-      player[1].cuerpo.posicion_min.x = 100.;
-      player[1].cuerpo.posicion_max.x = 106.;
+	player[0].cuerpo.posicion_min.x = 5.;
+	player[0].cuerpo.posicion_max.x = 11.;
+	player[1].cuerpo.posicion_min.x = 100.;
+	player[1].cuerpo.posicion_max.x = 106.;
 
-      if((player[0].cuerpo.posicion_min.x<= bullet.pos.x < player[0].cuerpo.posicion_max.x) && (bullet.pos.y == player[0].cuerpo.pos.y));
-      mvprintw(6,2,"Dañado");
+	if((player[0].cuerpo.posicion_min.x<= bullet.pos.x < player[0].cuerpo.posicion_max.x) && (bullet.pos.y == player[0].cuerpo.pos.y));
+	mvprintw(6,2,"Dañado");
 }
 int main(){
 	int turn = 0;
