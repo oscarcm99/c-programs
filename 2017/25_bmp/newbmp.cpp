@@ -43,8 +43,8 @@ void show_info(BMPInfoheader ih){
     printf("Planos: %u\n",ih.planes);
     printf("Bits: %u\n",ih.bitCount);
     printf("Tamaño de la imagen: %u\n",ih.sizeImage);
-    printf("X: %i\n",ih.xPelsPerMeter);
-    printf("Y: %i\n",ih.yPelsPerMeter);
+    printf("X: %u\n",ih.xPelsPerMeter);
+    printf("Y: %u\n",ih.yPelsPerMeter);
     printf("Uso del color: %u\n",ih.clrUsed);
     printf("Importancia del color: %u\n",ih.clrImportant);
 }
