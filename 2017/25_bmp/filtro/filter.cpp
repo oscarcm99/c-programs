@@ -1,6 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 #include "bmp.h"
 
 const char *cargar = "e.bmp";
@@ -9,8 +10,9 @@ const char *destino = "b.bmp";
 int main(){
     FILE *dir = NULL;
     Header header;
-    Color imagen[600 * 600];
-    int pixels = 600 * 600;
+    Color imagen[1280 * 697];
+    int pixels = 1280 * 697;
+
 
     if(!(dir = fopen(cargar,"r"))){
         fprintf(stderr,"No hay imagen.\n");
@@ -24,6 +26,7 @@ int main(){
     for(int i = 0; i<pixels; i++){
         char avg;
         avg = (imagen[i].r + imagen[i].g + imagen[i].b) / 3;
+        srand(time(NULL));
         if(imagen[i].r > avg){
             imagen[i].r = 255;
             imagen[i].g = 255;
