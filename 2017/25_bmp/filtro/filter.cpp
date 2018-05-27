@@ -4,14 +4,14 @@
 #include <time.h>
 #include "bmp.h"
 
-const char *cargar = "e.bmp";
-const char *destino = "b.bmp";
+const char *cargar = "w.bmp";
+const char *destino = "v.bmp";
 
 int main(){
     FILE *dir = NULL;
     Header header;
-    Color imagen[1280 * 697];
-    int pixels = 1280 * 697;
+    Color imagen[1069 * 1336];
+    int pixels = 1069 * 1336;
 
 
     if(!(dir = fopen(cargar,"r"))){
@@ -26,7 +26,8 @@ int main(){
     for(int i = 0; i<pixels; i++){
         char avg;
         avg = (imagen[i].r + imagen[i].g + imagen[i].b) / 3;
-        srand(time(NULL));
+	imagen[i].r = imagen[i].g = imagen[i].b = avg;
+        /*srand(time(NULL));
         if(imagen[i].r > avg){
             imagen[i].r = 255;
             imagen[i].g = 255;
@@ -56,7 +57,7 @@ int main(){
             imagen[i].r = 0;
             imagen[i].g = 0;
             imagen[i].b = 0;
-        }
+        }*/
     }
 
     if(!(dir = fopen(destino,"r+"))){
