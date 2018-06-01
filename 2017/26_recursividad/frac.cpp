@@ -21,6 +21,6 @@ int main(){
 		scanf(" %lf",&a[i]);
 	}
 	resultado = suma(a);
-	printf("Resultado = %lf.\n",resultado);
+	printf("Resultado = %lf\n",resultado);
 	return EXIT_SUCCESS;
 }
