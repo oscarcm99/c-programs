@@ -30,13 +30,13 @@ Objeto pop(Pila *pila){
 	return pila->data[--pila->cima];
 }
 void one(){
-printf("Menudo pozo.\n");
+	printf("Menudo pozo.\n");
 }
 void two(){
-printf("Adioooos.\n");
+	printf("Adioooos.\n");
 }
 int main(){
-        Pila pila;
+	Pila pila;
 	pila.cima =0;
 	Objeto ob1 = {{2,1},{1,1},{0,0},two},
 	       ob2 = {{3,0},{0,1},{2,2},one}, 
@@ -47,8 +47,8 @@ int main(){
 	push(ob3,&pila);
 
 	while(veces<3){
-	Objeto cosa = pop(&pila);
-	veces++;
+		Objeto cosa = pop(&pila);
+		veces++;
 	}
 	return EXIT_SUCCESS;
 }
