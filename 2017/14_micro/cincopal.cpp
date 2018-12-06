@@ -9,7 +9,6 @@ int main(){
 	int lenght;
 	char buffer[N];
 	char **lista = NULL;
-
 	printf("Cuantos nombres quieres meter: ");
 	scanf(" %i", &numpalabras);
 	for(int c_palabras = 0; c_palabras<numpalabras; c_palabras++){

@@ -4,8 +4,8 @@
 #include <time.h>
 #include "bmp.h"
 
-const char *cargar = "w.bmp";
-const char *destino = "v.bmp";
+const char *cargar = "v.bmp";
+const char *destino = "w.bmp";
 
 int main(){
     FILE *dir = NULL;
@@ -24,40 +24,10 @@ int main(){
     fclose(dir);
 
     for(int i = 0; i<pixels; i++){
-        char avg;
-        avg = (imagen[i].r + imagen[i].g + imagen[i].b) / 3;
-	imagen[i].r = imagen[i].g = imagen[i].b = avg;
-        /*srand(time(NULL));
-        if(imagen[i].r > avg){
-            imagen[i].r = 255;
-            imagen[i].g = 255;
-            imagen[i].b = 255;
-        }
-        else{
-            imagen[i].r = 0;
-            imagen[i].g = 0;
-            imagen[i].b = 0;
-        }
-        if(imagen[i].g > avg){
-            imagen[i].r = 255;
-            imagen[i].g = 255;
-            imagen[i].b = 255;
-        }
-        else{
-            imagen[i].r = 0;
-            imagen[i].g = 0;
-            imagen[i].b = 0;
-        }
-        if(imagen[i].b > avg){
-            imagen[i].r = 255;
-            imagen[i].g = 255;
-            imagen[i].b = 255;
-        }
-        else{
-            imagen[i].r = 0;
-            imagen[i].g = 0;
-            imagen[i].b = 0;
-        }*/
+        srand(time(NULL));
+        imagen[i].r = 25;
+	imagen[i].g = 143;
+	imagen[i].b = 79;
     }
 
     if(!(dir = fopen(destino,"r+"))){
